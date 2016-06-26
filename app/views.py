@@ -3,9 +3,11 @@ from app import app
 from app import models as mdl
 from .forms import InputForm
 
+print "Top of Views"
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
+    print "Top of index"
     form = InputForm()
     if form.validate_on_submit():
         session['first_name'] = form.first_name._value()
