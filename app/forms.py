@@ -13,13 +13,13 @@ class InputForm(Form):
     # http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-unit-testing
     def validate(self):
         if not Form.validate(self):
-            print "not form validate"
+            #print "not form validate"
             if self.first_name.data or \
                     self.last_name.data or \
                     self.case_num.data:
-                print "Should return True"
+                #print "Should return True"
                 return True
-        print "Should return False"
+        #print "Should return False"
         info = Markup('<h2 style="color:red"> Must enter at least one search term. </h2>')
         flash(info)
 
