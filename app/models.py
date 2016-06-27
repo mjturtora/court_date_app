@@ -10,17 +10,17 @@ def search_last(last):
 
 def search_all(first, last, case):
     if case:
-        #print 'Searching for case = ', case
+        print 'Searching for case = ', case
         sql_text = 'SELECT * FROM odyssey WHERE "Case Number" LIKE "%' + case + '%";'
         df = pd.read_sql_query(sql_text, engine)
         #print 'len(df) = ', len(df)
     elif last:
-        #print 'Searching for last = ', last
+        print 'Searching for last = ', last
         sql_text = 'SELECT * FROM odyssey WHERE lastname_stripped LIKE "%' + last + '%";'
         df = pd.read_sql_query(sql_text, engine)
         #print 'len(df) = ', len(df)
     elif first:
-        #print 'Searching for first'
+        print 'Searching for first'
         #print 'Only first name entered, searching for first name= ', first
         sql_text = 'SELECT * FROM odyssey WHERE firstname_stripped LIKE "%' + first + '%";'
         df = pd.read_sql_query(sql_text, engine)
