@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, session
+from flask import render_template, flash, redirect, url_for, session, Markup
 from app import app
 from app import models as mdl
 from .forms import InputForm
@@ -36,12 +36,22 @@ def results():
                         )
 
     #df = mdl.search_last(session['last_name'].replace(' ', ''))
+    if len(df) < 1:
+        print 'len(df) = ', len(df)
+        info = Markup('<h2 style="color:red"> No results found for: <br> \
+         First Name: %s, <br> \
+         Last Name: %s, <br> \
+         Case Number: %s. <br><br> \
+         Try another search </h2>' %
+                      (session['first_name'], session['last_name'], session['case_num'])
+                      )
+        flash(info)
+        return redirect(url_for('index'))
 
     return render_template('results.html',
                            data=df.to_html(),
                            title='My Court Date Is',
                            )
-
 
 # http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-unit-testing
 @app.errorhandler(404)
@@ -50,5 +60,5 @@ def not_found_error(error):
 
 @app.errorhandler(500)
 def internal_error(error):
-    db.session.rollback()
+    #db.session.rollback()
     return render_template('500.html'), 500
