@@ -19,8 +19,8 @@ class InputForm(Form):
                     self.case_num.data:
                 #print "Should return True"
                 return True
-        #print "Should return False"
-        info = Markup('<h2 style="color:red"> Must enter at least one search term. </h2>')
-        flash(info)
-
-        return False
+            #print "Should return False"
+            info = Markup('<h2 style="color:red"> Must enter at least one search term. </h2>')
+            flash(info)
+            return False
+        return True
