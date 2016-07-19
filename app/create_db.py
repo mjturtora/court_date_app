@@ -8,7 +8,8 @@ def read_odyssey():
 
     # Odyssey has the court dates.
     # filename = "Odyssey-JobOutput-June 01, 2016 06-32-43-1609654-3.TXT"
-    filename = 'Odyssey-Test Data.TXT'
+    #filename = 'Odyssey-Test Data.TXT'
+    filename = 'Odyssey-JobOutput-June 01, 2016 06-32-43-1609654-3.TXT'
     filepath = "..\\data\\Odyssey" + '\\' + filename
 
     df_odyssey = pd.read_csv(filepath)
@@ -19,7 +20,7 @@ def read_odyssey():
     df_odyssey['first_name'] = df_odyssey['Party Name'].str.strip().str.split(',').str[1]
     df_odyssey['firstname_stripped'] = df_odyssey['first_name'].str.replace(' ','')
 
-    #print df_odyssey
+    print 'len(df_odyssey) = ', len(df_odyssey)
     df_odyssey.to_sql('odyssey', engine, if_exists='replace')
 
 
