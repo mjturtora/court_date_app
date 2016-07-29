@@ -34,9 +34,12 @@ def search_all(first, last, case):
     if len(df) == 0:
         print "Need to add NO RESULTS prompt and return to index"
     print 'Done with search'
-    df.drop(['lastname_stripped',
-            'firstname_stripped'
-            ], inplace=True)
+    df.drop(['index',
+             'lastname_stripped',
+             'firstname_stripped',
+             'last_name',
+             'first_name'
+             ], axis=1, inplace=True)
 
     return df
 
