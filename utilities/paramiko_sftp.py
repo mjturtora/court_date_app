@@ -5,7 +5,7 @@ import csv
 def read_auth():
     """
     Inputs authorization info from external file.
-    :return: four element tuple tuple
+    :return: four element tuple
     """
     with open('priv\\paramikossh.txt') as auth:
         auth_reader = csv.DictReader(auth)
