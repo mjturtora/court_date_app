@@ -2,12 +2,17 @@ import paramiko
 import email
 import csv
 
+
+def pt_dummy(z):
+    return z+1
+
+
 def read_auth():
     """
     Inputs authorization info from external file.
     :return: four element tuple
     """
-    with open('priv\\paramikossh.txt') as auth:
+    with open('C:\\Stuff\projects\\court_date_app\\utilities\\priv\\paramikossh.txt') as auth:
         auth_reader = csv.DictReader(auth)
         for row in auth_reader:
             if row['Variable'] == 'url':
