@@ -4,23 +4,21 @@ import csv
 import sys
 import os
 
+# dummy function to test testing
 def pt_dummy(z):
     return z+1
 
 
 def read_auth():
-
-    print "\nIN READ AUTH"
-    # save for later: sys.stderr.write('foo\n')
-
     """
     Inputs authorization info from external file.
     :return: four element tuple
     """
-    path = os.path.join(os.path.dirname(__file__), 'priv\\paramikossh.txt')
-    print "AUTH PATH = ", path
-    #with open('C:\\Stuff\projects\\court_date_app\\utilities\\priv\\paramikossh.txt') as auth:
-    #with open('priv\\paramikossh.txt') as auth:
+
+    # save for later: sys.stderr.write('foo\n')
+
+    path = os.path.join(os.path.dirname(__file__), 'priv', 'paramikossh.txt')
+    print "\nAUTH PATH = ", path
     with open(path) as auth:
         auth_reader = csv.DictReader(auth)
         for row in auth_reader:

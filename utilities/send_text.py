@@ -45,7 +45,7 @@ def get_numbers(to):
     :param to: Name to send test to.
     :return: Number tuple of to and from numbers.
     """
-    #with open("..\\test_numbers.txt") as auth:
+    #with open("..\\tst_numbers.txt") as auth:
     with open("..\\numbers.txt") as auth:
         number_reader = csv.DictReader(auth)
         for row in number_reader:
