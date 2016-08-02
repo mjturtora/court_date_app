@@ -9,6 +9,10 @@ def pt_dummy(z):
     return z+1
 
 
+def base(*path):
+   return os.path.abspath(os.path.join(os.path.dirname(__file__), *path))
+
+
 def read_auth():
     """
     Inputs authorization info from external file.
@@ -17,9 +21,7 @@ def read_auth():
 
     # save for later: sys.stderr.write('foo\n')
 
-    path = os.path.join(os.path.dirname(__file__), 'priv', 'paramikossh.txt')
-    print "\nAUTH PATH = ", path
-    with open(path) as auth:
+    with open(base('priv', 'paramikossh.txt')) as auth:
         auth_reader = csv.DictReader(auth)
         for row in auth_reader:
             if row['Variable'] == 'url':
