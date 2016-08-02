@@ -1,16 +1,12 @@
 import paramiko
 import email
 import csv
-import sys
-import os
+from helpers import base
+
 
 # dummy function to test testing
 def pt_dummy(z):
     return z+1
-
-
-def base(*path):
-   return os.path.abspath(os.path.join(os.path.dirname(__file__), *path))
 
 
 def read_auth():

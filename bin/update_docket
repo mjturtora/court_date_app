@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+python paramiko_sftp.py
+python create_db.py
+git add *
+git commit -m "scheduled commit"
+git push heroku master
