@@ -15,8 +15,6 @@ def read_auth():
     :return: four element tuple
     """
 
-    # save for later: sys.stderr.write('foo\n')
-
     with open(base('priv', 'paramikossh.txt')) as auth:
         auth_reader = csv.DictReader(auth)
         for row in auth_reader:
