@@ -5,4 +5,4 @@ source ~/venvs/venv_jail/bin/activate
 python utilities/create_db.py
 git add .
 git commit -m "scheduled commit"
-#git push heroku master
+git push heroku master
