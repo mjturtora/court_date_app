@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+2>1
+1>>docket.log
 echo foo
 python utilities/paramiko_sftp.py
 source ~/venvs/venv_jail/bin/activate
