@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-exec >>docket.log
+exec >>/home/mt/proj/court/court_date_app/docket.log
 exec 2>&1
 echo foo
 python utilities/paramiko_sftp.py
