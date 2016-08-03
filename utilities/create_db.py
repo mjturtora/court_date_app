@@ -25,7 +25,7 @@ def read_odyssey():
     df_odyssey['firstname_stripped'] = df_odyssey['first_name'].str.replace(' ','')
 
     print 'len(df_odyssey) = ', len(df_odyssey)
-    df_odyssey.to_sql(base('..', 'app', 'odyssey'), engine, if_exists='replace')
+    df_odyssey.to_sql('odyssey', engine, if_exists='replace')
 
 
 if __name__ == "__main__":
