@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-python paramiko_sftp.py
-python create_db.py
-git add *
-git commit -m "scheduled commit"
-git push heroku master
+echo foo
+python utilities/paramiko_sftp.py
+source ~/venvs/venv_jail/bin/activate
+python utilities/create_db.py
+git add .
+#git commit -m "scheduled commit"
+#git push heroku master

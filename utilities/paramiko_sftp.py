@@ -58,10 +58,10 @@ if __name__ == '__main__':
         print
         print 'File to get = ', latestfile
         print
-        sftp.get(latestfile, 'priv\\email_file.txt')
+        sftp.get(latestfile, base('priv','email_file.txt'))
     client.close()
 
-    msg = email.message_from_file(open('priv\\email_file.txt'))
+    msg = email.message_from_file(open(base('priv','email_file.txt')))
     #print "msg = ", msg
     print "len = ", len(msg.get_payload())
     attachment = msg.get_payload()[2]

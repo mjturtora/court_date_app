@@ -1,6 +1,4 @@
-/test_numbers.txt
-/auth.txt
-/numbers.txt
+*.swp
 .idea/
 # Byte-compiled / optimized / DLL files
 __pycache__/
