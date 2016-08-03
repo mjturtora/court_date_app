@@ -66,4 +66,6 @@ if __name__ == '__main__':
     print "len = ", len(msg.get_payload())
     attachment = msg.get_payload()[2]
     print attachment.get_content_type()
-    open('priv\\attachment.txt', 'wb').write(attachment.get_payload(decode=True))
+
+    #open('..\\data\\odyssey\odyssey.txt', 'wb').write(attachment.get_payload(decode=True))
+    open(base('..', 'data', 'odyssey', 'odyssey.txt'), 'wb').write(attachment.get_payload(decode=True))
