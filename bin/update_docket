@@ -2,9 +2,10 @@
 exec >>/home/mt/proj/court/court_date_app/docket.log
 exec 2>&1
 echo foo
-python utilities/paramiko_sftp.py
-source ~/venvs/venv_jail/bin/activate
-python utilities/create_db.py
+python /home/mt/proj/court/court_date_app/utilities/paramiko_sftp.py
+source /home/mt/venvs/venv_jail/bin/activate
+python /home/mt/proj/court/court_date_app/utilities/create_db.py
+cd /home/mt/proj/court/court_date_app
 git add .
-git commit -m "scheduled commit"
+git commit -m "scheculed commit from cron"
 git push heroku master
