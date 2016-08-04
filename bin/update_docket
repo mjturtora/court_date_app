@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-exec >>/home/mt/proj/court/court_date_app/docket.log
-exec 2>&1
+#exec >>/home/mt/proj/court/court_date_app/docket.log
+#exec 2>&1
 echo foo
 python /home/mt/proj/court/court_date_app/utilities/paramiko_sftp.py
 source /home/mt/venvs/venv_jail/bin/activate
