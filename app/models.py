@@ -8,40 +8,33 @@ def search_last(last):
     return df
 
 
-def wrap_percent(txt):
-    return '%' + txt + '%'
+def sql_search(field_value, field_name):
+    wrapped_field = '%' + field_value + '%'
+    sql_text = \
+        'SELECT * FROM odyssey WHERE %s LIKE :wrapped_field;' % (field_name)
+    print 'wrapped_field = ', wrapped_field
+    print sql_text
+    df = pd.read_sql_query(sql_text, engine, params=[wrapped_field])
+    return df
+
 
 def search_all(first, last, case):
     if case:
-        case = wrap_percent(case)
         print 'Searching for case = ', case
-        sql_text = 'SELECT * FROM odyssey WHERE "Case Number" LIKE :case;'
-        df = pd.read_sql_query(sql_text, engine, params=[case])
-        #print 'len(df) = ', len(df)
+        df = sql_search(case, '"Case Number"')
     elif last:
-        last = wrap_percent(last)
         print 'Searching for last = ', last
-        sql_text = 'SELECT * FROM odyssey WHERE lastname_stripped LIKE :last;'
-        df = pd.read_sql_query(sql_text, engine, params=[last])
-        #print 'len(df) = ', len(df)
+        df = sql_search(last, 'lastname_stripped')
     elif first:
-        #first = wrap_percent(first)
         print 'Searching for first = ', first
-        print 'Only first name entered, searching for first name= ', first
-        sql_text = 'SELECT * FROM odyssey WHERE firstname_stripped LIKE %"+first+"%;'
-        df = pd.read_sql_query(sql_text, engine)
-        #sql_text = 'SELECT * FROM odyssey WHERE firstname_stripped LIKE :first;'
-        #df = pd.read_sql_query(sql_text, engine, params=[first])
-        #print 'len(df) = ', len(df)
-        print 'After first name search, df= ', df
-    """
+        df = sql_search(first, 'firstname_stripped')
     if len(df) > 1:
         #print 'len(df) = ', len(df)
         if first:
             print 'Searching for first after initial search. First = ', first
             df = df.loc[df['firstname_stripped'].str.contains(first)]
-    """
     print 'Done with search'
+
     df.drop(['index',
              'lastname_stripped',
              'firstname_stripped',
