@@ -15,6 +15,7 @@ def index():
         session['case_num'] = form.case_num._value()
 
         """
+        # http://stackoverflow.com/questions/2077283/escape-special-html-characters-in-python
         flash('Will search for First Name: %s, Last Name: %s, \
                Case Number: %s, remember_me= %s' %
               (form.first_name._value(), form.last_name._value(),
