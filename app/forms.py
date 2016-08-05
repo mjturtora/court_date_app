@@ -14,13 +14,15 @@ class InputForm(Form):
     def validate(self):
         if not Form.validate(self):
             #print "not form validate"
+            """
             if "<" in self.first_name.data or \
                     "<" in self.last_name.data or \
                     "<" in self.case_num.data:
                 info = Markup("<h2 style='color:red'> Don't be an ASSHOLE. </h2>")
                 flash(info)
                 return False
-            elif self.first_name.data or \
+            """
+            if self.first_name.data or \
                     self.last_name.data or \
                     self.case_num.data:
                 #print "Should return True"
