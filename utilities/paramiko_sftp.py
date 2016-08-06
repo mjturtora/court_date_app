@@ -31,7 +31,7 @@ def read_auth():
 if __name__ == '__main__':
 
     url, account_id, passwd, keyfile = read_auth()
-    print 'url, account_id, passwd, keyfile  =', url, account_id, passwd, keyfile
+    print 'url, account_id, passwd, keyfile  =', url, account_id  #, passwd, keyfile
 
     # http://stackoverflow.com/questions/9963391/how-do-use-paramiko-rsakey-from-private-key
     client = paramiko.SSHClient()
